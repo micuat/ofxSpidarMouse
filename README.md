@@ -7,7 +7,7 @@ Mar 03, 2013
 About
 ------
 
-ofxAddon for [SPIDAR-mouse]( http://spidar-string.com ), a haptic mouse developed by Sato lab, Tokyo Tech.
+ofxAddon for [SPIDAR-mouse (in Japanese)]( http://spidar-string.com ), a haptic mouse developed by Sato lab, Tokyo Tech.
 
 See the example for the usage.
 
