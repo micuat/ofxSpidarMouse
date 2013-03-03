@@ -19,13 +19,7 @@
 
 #include "hidapi.h"
 
-// Headers needed for sleeping.
-#ifdef _WIN32
-#include <windows.h>
-#else
-#include <unistd.h>
-#endif
-
+#include "ofMain.h"
 
 class ofSpidarMouse {
 	unsigned char *MinForce_Bytes, *MaxForce_Bytes, *Fun_a_Bytes, *Fun_b_Bytes;
@@ -45,6 +39,12 @@ class ofSpidarMouse {
 	
 	hid_device *handle;
 	struct hid_device_info *devs, *cur_dev;
+	
+	unsigned long startTime;
+	int defaultDuration;
+	int duration;
+
+	int sForce(float, float);
 
 public:
 	ofSpidarMouse();
@@ -52,7 +52,9 @@ public:
 	int init();
 	int open();
 	int close();
+	int update();
 	int setForce(float, float);
+	int setForce(float, float, int);
 };
 
 

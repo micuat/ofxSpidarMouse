@@ -141,6 +141,8 @@ int ofSpidarMouse::open()
 	SetForce_Dirunit_X=0.0;
 	SetForce_Dirunit_Y=0.0;
 	Max_Force=1.5;
+	defaultDuration = 4; // 4ms
+	duration = 0;
 	
 	//////////////// Start SPIDAR-mouse
 	
@@ -234,7 +236,40 @@ int ofSpidarMouse::close()
 	return 0;
 }
 
+int ofSpidarMouse::update()
+{
+	unsigned long curTime = ofGetSystemTime();
+	
+	if( duration != 0 && (curTime - startTime) > duration ) {
+		setForce(0.0, 0.0);
+		duration = 0;
+	}
+	
+	return 0;
+}
+
 int ofSpidarMouse::setForce(float Force_XScale, float Force_YScale)
+{
+	duration = 0; // infinite
+	
+	sForce(Force_XScale, Force_YScale);
+}
+
+int ofSpidarMouse::setForce(float Force_XScale, float Force_YScale, int d)
+{
+	startTime = ofGetSystemTime();
+	
+	if( d < defaultDuration ) {
+		duration = defaultDuration;
+	} else {
+		duration = d;
+	}
+	
+	sForce(Force_XScale, Force_YScale);
+}
+
+
+int ofSpidarMouse::sForce(float Force_XScale, float Force_YScale)
 {
 	if( fabsf(Force_XScale) > 1.0 ) Force_XScale /= fabsf(Force_XScale);
 	if( fabsf(Force_YScale) > 1.0 ) Force_YScale /= fabsf(Force_YScale);
