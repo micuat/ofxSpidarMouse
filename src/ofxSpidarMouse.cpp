@@ -5,18 +5,18 @@
  Licensed under MIT license.
  https://github.com/micuat/SPIDAR-mouse-UNIX
  
- ofSpidarMouse.cpp
+ ofxSpidarMouse.cpp
  
  ********************************************************/
 
-#include "ofSpidarMouse.h"
+#include "ofxSpidarMouse.h"
 #include "hidapi.h"
 
-ofSpidarMouse::ofSpidarMouse()
+ofxSpidarMouse::ofxSpidarMouse()
 {
 }
 
-int ofSpidarMouse::init()
+int ofxSpidarMouse::init()
 {
 	int res;
 	unsigned char buf[256];
@@ -119,7 +119,7 @@ int ofSpidarMouse::init()
 	return 0;
 }
 
-ofSpidarMouse::~ofSpidarMouse()
+ofxSpidarMouse::~ofxSpidarMouse()
 {
 	hid_close(handle);
 	
@@ -127,7 +127,7 @@ ofSpidarMouse::~ofSpidarMouse()
 	hid_exit();	
 }
 
-int ofSpidarMouse::open()
+int ofxSpidarMouse::open()
 {
 	int res;
 	unsigned char buf[256];
@@ -218,10 +218,12 @@ int ofSpidarMouse::open()
 		return 1;
 	}
 	
+	setForce(0.0, 0.0);
+	
 	return 0;
 }
 
-int ofSpidarMouse::close()
+int ofxSpidarMouse::close()
 {
 	int res;
 	unsigned char buf[256];
@@ -236,7 +238,7 @@ int ofSpidarMouse::close()
 	return 0;
 }
 
-int ofSpidarMouse::update()
+int ofxSpidarMouse::update()
 {
 	unsigned long curTime = ofGetSystemTime();
 	
@@ -248,14 +250,14 @@ int ofSpidarMouse::update()
 	return 0;
 }
 
-int ofSpidarMouse::setForce(float Force_XScale, float Force_YScale)
+int ofxSpidarMouse::setForce(float Force_XScale, float Force_YScale)
 {
 	duration = 0; // infinite
 	
 	sForce(Force_XScale, Force_YScale);
 }
 
-int ofSpidarMouse::setForce(float Force_XScale, float Force_YScale, int d)
+int ofxSpidarMouse::setForce(float Force_XScale, float Force_YScale, int d)
 {
 	startTime = ofGetSystemTime();
 	
@@ -269,7 +271,7 @@ int ofSpidarMouse::setForce(float Force_XScale, float Force_YScale, int d)
 }
 
 
-int ofSpidarMouse::sForce(float Force_XScale, float Force_YScale)
+int ofxSpidarMouse::sForce(float Force_XScale, float Force_YScale)
 {
 	if( fabsf(Force_XScale) > 1.0 ) Force_XScale /= fabsf(Force_XScale);
 	if( fabsf(Force_YScale) > 1.0 ) Force_YScale /= fabsf(Force_YScale);

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C25418E16E3D665004B176B /* hid.c in Sources */ = {isa = PBXBuildFile; fileRef = 5C25418916E3D665004B176B /* hid.c */; };
-		5C25419316E3D6F3004B176B /* ofSpidarMouse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C25419216E3D6F3004B176B /* ofSpidarMouse.cpp */; };
+		5C42F4EE16E415E0002E0CC2 /* hid.c in Sources */ = {isa = PBXBuildFile; fileRef = 5C42F4EA16E415E0002E0CC2 /* hid.c */; };
+		5C42F4EF16E415E0002E0CC2 /* ofxSpidarMouse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C42F4EC16E415E0002E0CC2 /* ofxSpidarMouse.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -62,10 +62,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5C25418916E3D665004B176B /* hid.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hid.c; sourceTree = "<group>"; };
-		5C25418A16E3D665004B176B /* hidapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hidapi.h; sourceTree = "<group>"; };
-		5C25419116E3D6F3004B176B /* ofSpidarMouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofSpidarMouse.h; sourceTree = "<group>"; };
-		5C25419216E3D6F3004B176B /* ofSpidarMouse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofSpidarMouse.cpp; sourceTree = "<group>"; };
+		5C42F4EA16E415E0002E0CC2 /* hid.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hid.c; sourceTree = "<group>"; };
+		5C42F4EB16E415E0002E0CC2 /* hidapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hidapi.h; sourceTree = "<group>"; };
+		5C42F4EC16E415E0002E0CC2 /* ofxSpidarMouse.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxSpidarMouse.cpp; sourceTree = "<group>"; };
+		5C42F4ED16E415E0002E0CC2 /* ofxSpidarMouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxSpidarMouse.h; sourceTree = "<group>"; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -123,18 +123,18 @@
 		5C25417A16E3D65A004B176B /* ofxSpidarMouse */ = {
 			isa = PBXGroup;
 			children = (
-				5C25418816E3D665004B176B /* src */,
+				5C42F4E916E415E0002E0CC2 /* src */,
 			);
 			name = ofxSpidarMouse;
 			sourceTree = "<group>";
 		};
-		5C25418816E3D665004B176B /* src */ = {
+		5C42F4E916E415E0002E0CC2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				5C25418916E3D665004B176B /* hid.c */,
-				5C25419116E3D6F3004B176B /* ofSpidarMouse.h */,
-				5C25419216E3D6F3004B176B /* ofSpidarMouse.cpp */,
-				5C25418A16E3D665004B176B /* hidapi.h */,
+				5C42F4EA16E415E0002E0CC2 /* hid.c */,
+				5C42F4EB16E415E0002E0CC2 /* hidapi.h */,
+				5C42F4EC16E415E0002E0CC2 /* ofxSpidarMouse.cpp */,
+				5C42F4ED16E415E0002E0CC2 /* ofxSpidarMouse.h */,
 			);
 			name = src;
 			path = ../src;
@@ -313,8 +313,8 @@
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* testApp.cpp in Sources */,
-				5C25418E16E3D665004B176B /* hid.c in Sources */,
-				5C25419316E3D6F3004B176B /* ofSpidarMouse.cpp in Sources */,
+				5C42F4EE16E415E0002E0CC2 /* hid.c in Sources */,
+				5C42F4EF16E415E0002E0CC2 /* ofxSpidarMouse.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

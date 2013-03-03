@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
-#include "ofSpidarMouse.h"
+#include "ofxSpidarMouse.h"
 
 class testApp : public ofBaseApp{
 public:
@@ -20,5 +20,5 @@ public:
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
 
-	ofSpidarMouse spidar;
+	ofxSpidarMouse spidar;
 };

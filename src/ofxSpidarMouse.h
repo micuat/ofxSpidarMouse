@@ -5,7 +5,7 @@
  Licensed under MIT license.
  https://github.com/micuat/SPIDAR-mouse-UNIX
  
- spidarMouse.h
+ ofxSpidarMouse.h
  
  ********************************************************/
 
@@ -21,7 +21,7 @@
 
 #include "ofMain.h"
 
-class ofSpidarMouse {
+class ofxSpidarMouse {
 	unsigned char *MinForce_Bytes, *MaxForce_Bytes, *Fun_a_Bytes, *Fun_b_Bytes;
 	float interG_X;
 	float interG_Y;
@@ -47,8 +47,8 @@ class ofSpidarMouse {
 	int sForce(float, float);
 
 public:
-	ofSpidarMouse();
-	~ofSpidarMouse();
+	ofxSpidarMouse();
+	~ofxSpidarMouse();
 	int init();
 	int open();
 	int close();
