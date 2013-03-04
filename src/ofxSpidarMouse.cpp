@@ -14,10 +14,14 @@
 
 ofxSpidarMouse::ofxSpidarMouse()
 {
+	isInitialized = false;
+	isOpened = false;
 }
 
 int ofxSpidarMouse::init()
 {
+	isInitialized = false;
+	
 	int res;
 	unsigned char buf[256];
 #define MAX_STR 255
@@ -116,6 +120,7 @@ int ofxSpidarMouse::init()
 		printf("\n");
 	}
 	
+	isInitialized = true;
 	return 0;
 }
 
@@ -129,6 +134,12 @@ ofxSpidarMouse::~ofxSpidarMouse()
 
 int ofxSpidarMouse::open()
 {
+	isOpened = false;
+	
+	if( !isInitialized ) {
+		return 1;
+	}
+	
 	int res;
 	unsigned char buf[256];
 	float conf_data[4];
@@ -220,11 +231,16 @@ int ofxSpidarMouse::open()
 	
 	setForce(0.0, 0.0);
 	
+	isOpened = true;
 	return 0;
 }
 
 int ofxSpidarMouse::close()
 {
+	if( !isOpened ) {
+		return 1;
+	}
+	
 	int res;
 	unsigned char buf[256];
 	
@@ -240,6 +256,10 @@ int ofxSpidarMouse::close()
 
 int ofxSpidarMouse::update()
 {
+	if( !isOpened ) {
+		return 1;
+	}
+	
 	unsigned long curTime = ofGetSystemTime();
 	
 	if( duration != 0 && (curTime - startTime) > duration ) {
@@ -254,7 +274,7 @@ int ofxSpidarMouse::setForce(float Force_XScale, float Force_YScale)
 {
 	duration = 0; // infinite
 	
-	sForce(Force_XScale, Force_YScale);
+	return sForce(Force_XScale, Force_YScale);
 }
 
 int ofxSpidarMouse::setForce(float Force_XScale, float Force_YScale, int d)
@@ -267,12 +287,16 @@ int ofxSpidarMouse::setForce(float Force_XScale, float Force_YScale, int d)
 		duration = d;
 	}
 	
-	sForce(Force_XScale, Force_YScale);
+	return sForce(Force_XScale, Force_YScale);
 }
 
 
 int ofxSpidarMouse::sForce(float Force_XScale, float Force_YScale)
 {
+	if( !isOpened ) {
+		return 1;
+	}
+	
 	if( fabsf(Force_XScale) > 1.0 ) Force_XScale /= fabsf(Force_XScale);
 	if( fabsf(Force_YScale) > 1.0 ) Force_YScale /= fabsf(Force_YScale);
 	
@@ -324,6 +348,7 @@ int ofxSpidarMouse::sForce(float Force_XScale, float Force_YScale)
 	res = hid_write(handle, buf, 65);
 	if (res < 0) {
 		printf("Unable to make feedback: %ls\n", hid_error(handle));
+		return 1;
 	}
 	
 	return 0;

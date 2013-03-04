@@ -43,6 +43,8 @@ class ofxSpidarMouse {
 	unsigned long startTime;
 	int defaultDuration;
 	int duration;
+	
+	bool isInitialized, isOpened;
 
 	int sForce(float, float);
 
