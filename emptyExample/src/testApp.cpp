@@ -17,11 +17,6 @@ void testApp::draw(){
 }
 
 //--------------------------------------------------------------
-void testApp::exit(){
-	spidar.close();
-}
-
-//--------------------------------------------------------------
 void testApp::keyPressed(int key){
 	spidar.setForce(-1.0, 0, 200);
 }
