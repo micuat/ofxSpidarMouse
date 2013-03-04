@@ -126,6 +126,10 @@ int ofxSpidarMouse::init()
 
 ofxSpidarMouse::~ofxSpidarMouse()
 {
+	if( isOpened ) {
+		close();
+	}
+	
 	hid_close(handle);
 	
 	/* Free static HIDAPI objects. */
