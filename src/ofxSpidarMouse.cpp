@@ -130,10 +130,12 @@ ofxSpidarMouse::~ofxSpidarMouse()
 		close();
 	}
 	
-	hid_close(handle);
-	
-	/* Free static HIDAPI objects. */
-	hid_exit();	
+	if( isInitialized ) {
+		hid_close(handle);
+		
+		/* Free static HIDAPI objects. */
+		hid_exit();	
+	}
 }
 
 int ofxSpidarMouse::open()
