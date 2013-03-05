@@ -262,10 +262,6 @@ int ofxSpidarMouse::close()
 
 int ofxSpidarMouse::update()
 {
-	if( !isOpened ) {
-		return 1;
-	}
-	
 	unsigned long curTime = ofGetSystemTime();
 	
 	if( duration != 0 && (curTime - startTime) > duration ) {
@@ -276,14 +272,14 @@ int ofxSpidarMouse::update()
 	return 0;
 }
 
-int ofxSpidarMouse::setForce(float Force_XScale, float Force_YScale)
+int ofxSpidarMouse::setForce(float fx, float fy)
 {
 	duration = 0; // infinite
 	
-	return sForce(Force_XScale, Force_YScale);
+	return sForce(fx, fy);
 }
 
-int ofxSpidarMouse::setForce(float Force_XScale, float Force_YScale, int d)
+int ofxSpidarMouse::setForce(float fx, float fy, int d)
 {
 	startTime = ofGetSystemTime();
 	
@@ -293,18 +289,27 @@ int ofxSpidarMouse::setForce(float Force_XScale, float Force_YScale, int d)
 		duration = d;
 	}
 	
-	return sForce(Force_XScale, Force_YScale);
+	return sForce(fx, fy);
 }
 
 
-int ofxSpidarMouse::sForce(float Force_XScale, float Force_YScale)
+int ofxSpidarMouse::sForce(float fx, float fy)
 {
+	if( fabsf(fx) > 1.0 ) {
+		Force_XScale = fx / fabsf(fx);
+	} else {
+		Force_XScale = fx;
+	}
+
+	if( fabsf(fy) > 1.0 ) {
+		Force_YScale = fy / fabsf(fy);
+	} else {
+		Force_YScale = fy;
+	}
+	
 	if( !isOpened ) {
 		return 1;
 	}
-	
-	if( fabsf(Force_XScale) > 1.0 ) Force_XScale /= fabsf(Force_XScale);
-	if( fabsf(Force_YScale) > 1.0 ) Force_YScale /= fabsf(Force_YScale);
 	
 	Force_X = Force_XScale * Max_Force;
 	Force_Y = Force_YScale * Max_Force;
@@ -358,4 +363,17 @@ int ofxSpidarMouse::sForce(float Force_XScale, float Force_YScale)
 	}
 	
 	return 0;
+}
+
+void ofxSpidarMouse::draw(int col = 0x000000)
+{
+	string info = "";
+	info += "X Value: "+ofToString(Force_XScale, 3)+"\n";
+	info += "Y Value: "+ofToString(Force_YScale, 3)+"\n\n";
+ 	ofSetHexColor(col);
+	ofDrawBitmapString(info, 30, 30);
+	
+	ofFill();
+	ofCircle(50, 100, 3);
+	ofCircle(50 + Force_XScale * 30, 100 + Force_YScale * 30, 3);
 }

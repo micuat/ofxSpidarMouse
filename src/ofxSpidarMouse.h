@@ -57,6 +57,7 @@ public:
 	int update();
 	int setForce(float, float);
 	int setForce(float, float, int);
+	void draw(int);
 };
 
 
