@@ -386,7 +386,9 @@ void ofxSpidarMouse::draw(int col = 0x000000)
 	
 	for( int i = 0 ; i < forceStack.size() ; i++ ) {
 		ofSetColor(i * 6);
-		ofCircle(circleCenter + forceStack[i] * r, 3);
+		if( fabsf(forceStack[i].x) > 0.01 || fabsf(forceStack[i].y) > 0.01 ) {
+			ofCircle(circleCenter + forceStack[i] * r * i / 30, 3);
+		}
 	}
 	
 	ofNoFill();
