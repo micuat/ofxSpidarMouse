@@ -30,6 +30,7 @@ class ofxSpidarMouse {
 	float SetForce_Dirunit_Y;
 	float Force_XScale, Force_YScale;
 	float Force_X,Force_Y;
+	vector<ofVec2f> forceStack;
 	float Max_Force;
 	unsigned char *interG_X_Bytes;
 	unsigned char *interG_Y_Bytes;

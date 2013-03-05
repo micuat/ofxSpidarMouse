@@ -161,6 +161,7 @@ int ofxSpidarMouse::open()
 	defaultDuration = 4; // 4ms
 	duration = 0;
 	
+	forceStack.clear();
 	//////////////// Start SPIDAR-mouse
 	
 	memset(buf,0,sizeof(buf));
@@ -269,6 +270,11 @@ int ofxSpidarMouse::update()
 		duration = 0;
 	}
 	
+	forceStack.push_back(ofVec2f(Force_XScale, Force_YScale));
+	if( forceStack.size() > 30 ) {
+		forceStack.erase(forceStack.begin());
+	}
+	
 	return 0;
 }
 
@@ -374,6 +380,12 @@ void ofxSpidarMouse::draw(int col = 0x000000)
 	ofDrawBitmapString(info, 30, 30);
 	
 	ofFill();
-	ofCircle(50, 100, 3);
-	ofCircle(50 + Force_XScale * 30, 100 + Force_YScale * 30, 3);
+	ofVec2f circleCenter(80, 100);
+	
+	for( int i = 0 ; i < forceStack.size() ; i++ ) {
+		ofSetColor(i * 6);
+		ofCircle(circleCenter + forceStack[i] * 30, 3);
+	}
+ 	ofSetHexColor(col);
+	ofCircle(circleCenter, 3);
 }
