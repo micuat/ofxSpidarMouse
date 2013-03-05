@@ -373,6 +373,9 @@ int ofxSpidarMouse::sForce(float fx, float fy)
 
 void ofxSpidarMouse::draw(int col = 0x000000)
 {
+	ofVec2f circleCenter(80, 100);
+	int r = 30;
+	
 	string info = "";
 	info += "X Value: "+ofToString(Force_XScale, 3)+"\n";
 	info += "Y Value: "+ofToString(Force_YScale, 3)+"\n\n";
@@ -380,12 +383,14 @@ void ofxSpidarMouse::draw(int col = 0x000000)
 	ofDrawBitmapString(info, 30, 30);
 	
 	ofFill();
-	ofVec2f circleCenter(80, 100);
 	
 	for( int i = 0 ; i < forceStack.size() ; i++ ) {
 		ofSetColor(i * 6);
-		ofCircle(circleCenter + forceStack[i] * 30, 3);
+		ofCircle(circleCenter + forceStack[i] * r, 3);
 	}
+	
+	ofNoFill();
  	ofSetHexColor(col);
-	ofCircle(circleCenter, 3);
+	ofCircle(circleCenter, r * 1.41);
+	ofCircle(circleCenter, r * 1.41 / 2);
 }
