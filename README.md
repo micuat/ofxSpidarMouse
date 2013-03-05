@@ -17,7 +17,7 @@ Usage
 1. Declare `ofxSpidarMouse spidar;` in `testApp.h`.
 2. `spidar.init();` and `spidar.open()` in `testApp::setup()`.
 3. `spidar.update();` in `testApp::update()`.
-4. `spidar.setForce(x, y, duration);` to apply force feedback. `spidar.setForce(x, y);` for infinite duration.
+4. `spidar.setForce(x, y, duration);` to apply force feedback for `duration` milliseconds. `spidar.setForce(x, y);` for infinite duration.
 5. `spidar.draw();` in `testApp::draw()` to show debug window (useful if developing without physical SPIDAR-mouse)
 
 
