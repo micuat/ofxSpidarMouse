@@ -371,7 +371,7 @@ int ofxSpidarMouse::sForce(float fx, float fy)
 	return 0;
 }
 
-void ofxSpidarMouse::draw(int col = 0x000000)
+void ofxSpidarMouse::draw(int col)
 {
 	ofVec2f circleCenter(80, 100);
 	int r = 30;

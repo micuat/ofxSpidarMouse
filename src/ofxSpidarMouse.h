@@ -58,7 +58,7 @@ public:
 	int update();
 	int setForce(float, float);
 	int setForce(float, float, int);
-	void draw(int);
+	void draw(int col = 0x000000);
 };
 
 
