@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<ClCompile Include="src\ofApp.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\ofApp.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxSpidarMouse\src\hid_osx.c">
+			<Filter>addons\ofxSpidarMouse\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxSpidarMouse\src\hid_windows.c">
+			<Filter>addons\ofxSpidarMouse\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxSpidarMouse\src\ofxSpidarMouse.cpp">
+			<Filter>addons\ofxSpidarMouse\src</Filter>
+		</ClCompile>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="src">
+			<UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons">
+			<UniqueIdentifier>{71834F65-F3A9-211E-73B8-DC85}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxSpidarMouse">
+			<UniqueIdentifier>{B24BF124-6091-7B0E-DEB9-E5B9}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxSpidarMouse\src">
+			<UniqueIdentifier>{7833EF1E-4538-D94A-FB18-03E5}</UniqueIdentifier>
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="src\ofApp.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\ofApp.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxSpidarMouse\src\hidapi.h">
+			<Filter>addons\ofxSpidarMouse\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxSpidarMouse\src\ofxSpidarMouse.h">
+			<Filter>addons\ofxSpidarMouse\src</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<ResourceCompile Include="icon.rc" />
+	</ItemGroup>
+</Project>

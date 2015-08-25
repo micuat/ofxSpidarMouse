@@ -20,6 +20,8 @@
         http://github.com/signal11/hidapi .
 ********************************************************/
 
+#if defined( __APPLE_CC__)
+
 /* See Apple Technical Note TN2187 for details on IOHidManager. */
 
 #include <IOKit/hid/IOHIDManager.h>
@@ -1150,3 +1152,5 @@ int main(void)
 	return 0;
 }
 #endif
+
+#endif // defined( __APPLE_CC__)
