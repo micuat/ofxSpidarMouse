@@ -1,10 +1,29 @@
-.DS_Store
-
-# Xcode
-*.app
-*.mode1v3
+# xcode
+*.depend
+*.layout
+*.mode*v3
 *.pbxuser
-build
+*.app*
+*.DS_Store
+*.xcworkspacedata
+#XCode 4
 xcuserdata
-DerivedData
+*.xcworkspace
 
+# vs2010
+*.opensdf
+*.sdf
+*.suo
+*.ipch
+
+# other
+.svn/
+obj/
+bin/
+vs2010/
+build/
+!data/
+
+share/
+*~
+.*
