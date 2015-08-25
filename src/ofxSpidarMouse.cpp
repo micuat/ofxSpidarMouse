@@ -389,7 +389,7 @@ void ofxSpidarMouse::draw(int col)
 		if( fabsf(forceStack[i].x) > 0.01 || fabsf(forceStack[i].y) > 0.01 ) {
 			ofPushMatrix();
 			ofTranslate(circleCenter + forceStack[i] * r * i / 30);
-			ofRotateZ(atan2(forceStack[i].y, forceStack[i].x)/M_PI*180);
+			ofRotateZ(ofRadToDeg(atan2(forceStack[i].y, forceStack[i].x)));
 			ofRect(-2, -4, 4, 8);
 			ofPopMatrix();
 		}
